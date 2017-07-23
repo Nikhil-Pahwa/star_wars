@@ -1,0 +1,12 @@
+/node_modules/
+/.cache/
+/dist/
+/node/
+src/assets/*.bundle.js
+
+*.bak
+*.js.map
+coverage
+*.log
+
+
