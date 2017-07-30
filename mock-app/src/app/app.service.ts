@@ -12,4 +12,14 @@ export class StarWarsService {
         return this.http.get('assets/json/characters.json')
             .map(res => res.json());
     }
+
+    getPerson(personUrl: string) {
+        return this.http.get(personUrl)
+            .map(res => res.json());
+    }
+
+    getFilm(filmUrl: string) {
+        return this.http.get(filmUrl)
+            .map(res => res.json());
+    }
 }

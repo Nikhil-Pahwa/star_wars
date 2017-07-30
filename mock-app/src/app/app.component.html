@@ -1,3 +1,4 @@
-<h1>
-  {{characters | json}}
-</h1>
+<a href="javascript:void(0)" (click)="showDetail(character)" *ngFor="let character of characters">{{character.name}}</a>
+<ul>
+  <li *ngFor="let film of actor.films">{{film.title}} {{film.release_date | formatDate}}</li>
+</ul>

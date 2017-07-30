@@ -1,11 +1,11 @@
 export interface RemoteCharacter {
     name: string;
-    personUrl: string;
+    url: string;
 }
 
 export class Character {
     constructor(
         public name: string,
-        public personUrl: string
+        public url: string
     ) { }
 }

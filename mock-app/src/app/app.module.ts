@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { FormatDatePipe } from './time-format.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormatDatePipe
   ],
   imports: [
     BrowserModule,
