@@ -1,4 +1,11 @@
-<a href="javascript:void(0)" (click)="showDetail(character)" *ngFor="let character of characters">{{character.name}}</a>
-<ul>
-  <li *ngFor="let film of actor.films">{{film.title}} {{film.release_date | formatDate}}</li>
-</ul>
+<h1 class="page-title">Choose a character</h1>
+<a href="javascript:void(0)" [ngClass]="{'active': selectedItem == character}" (click)="showDetail(character)" *ngFor="let character of characters">
+  {{character.name}}
+</a>
+<div class="film-list-container">
+  <h2>Film List</h2>
+  <ul>
+    <li *ngFor="let film of actor.films">{{film.title}} {{film.releaseDate | formatDate}}</li>
+  </ul>
+  <span class="loader" *ngIf="!isLoaded"></span>
+</div>

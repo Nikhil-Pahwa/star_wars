@@ -16,6 +16,8 @@ import { Character, People, Film, Actor, EmptyActor } from '../resources';
 export class AppComponent {
   private characters: Character[];
   private actor: Actor = EmptyActor;
+  private selectedItem: Character = null;
+  private isLoaded: boolean = true;
 
   constructor(private starWarService: StarWarsService) {
     this.starWarService.getCharacters()
@@ -24,6 +26,9 @@ export class AppComponent {
   }
 
   showDetail(character: Character) {
+    this.selectedItem = character;
+    this.isLoaded = false;
+    this.actor.films = [];
     this.starWarService.getPeople(character.url)
       .mergeMap((people: People) => {
         this.actor.name = people.name;
@@ -31,6 +36,7 @@ export class AppComponent {
       })
       .subscribe((films: Film[]) => {
         this.actor.films = films;
+        this.isLoaded = true;
       });
   }
 

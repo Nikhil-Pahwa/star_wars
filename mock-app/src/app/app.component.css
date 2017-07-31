@@ -1,14 +1,60 @@
 :host {
-  margin: 100px 0 0 50px;
   display: block;
+  margin: 110px auto;
+  text-align: center;
+}
+
+.page-title {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 40px;
 }
 
 a {
   cursor: pointer;
-  text-decoration: none;
-  border: 1px solid red;
   margin-right: 20px;
   padding: 20px 40px;
-  color: #000;
-  background-color: darkgray;
+  color: #2b3e4f;
+  border-radius: 10px;
+  background-color: #fff;
+  text-decoration: none;
+}
+
+a.active {
+  background-color: #337ab7;
+  color: #fff;
+}
+
+.film-list-container {
+  list-style: none;
+  background-color: #fff;
+  width: 50%;
+  margin: 55px auto;
+  padding: 21px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.loader {
+  display: block;
+  margin: 28px auto;
+  border: 8px solid #f3f3f3;
+  /* Light grey */
+  border-top: 8px solid rgba(246, 146, 30, 1);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
 }
