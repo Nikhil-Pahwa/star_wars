@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/forkJoin';
+import "rxjs/add/operator/debounceTime";
 
 import { StarWarsService } from './app.service';
 import { Character, People, Film, Actor, EmptyActor } from '../resources';
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit {
     this.actor.films = [];
     this.errorMsg = '';
     this.starWarService.getPeople(character.url)
+      .debounceTime(1000)
       .switchMap((people: People) => {
         this.actor.name = people.name;
         return Observable.forkJoin(this.fetchFilms(people))
@@ -43,6 +45,7 @@ export class AppComponent implements OnInit {
       (films: Film[]) => {
         this.actor.films = films;
         this.isLoaded = true;
+        this.errorMsg = '';
       },
       err => {
         console.log('error occur while fetching data');
