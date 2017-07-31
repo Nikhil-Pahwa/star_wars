@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { StarWarsService } from './app.service';
-import { Character, People, Film, Actor, EmptyActor } from '../resources';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/forkJoin';
+
+import { StarWarsService } from './app.service';
+import { Character, People, Film, Actor, EmptyActor } from '../resources';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ export class AppComponent {
   }
 
   showDetail(character: Character) {
-    this.starWarService.getPerson(character.url)
+    this.starWarService.getPeople(character.url)
       .mergeMap((people: People) => {
         this.actor.name = people.name;
         return Observable.forkJoin(this.fetchFilms(people))

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+
+import { RemoteCharacter, RemotePeople, PeopleFromRemote, People, RemoteFilm, Film, FilmFromRemote, Actor, EmptyActor } from '../resources';
 
 @Injectable()
 export class StarWarsService {
@@ -13,13 +16,15 @@ export class StarWarsService {
             .map(res => res.json());
     }
 
-    getPerson(personUrl: string) {
+    getPeople(personUrl: string): Observable<People> {
         return this.http.get(personUrl)
-            .map(res => res.json());
+            .map(res => res.json())
+            .map((remotePeople: RemotePeople) => PeopleFromRemote(remotePeople));
     }
 
     getFilm(filmUrl: string) {
         return this.http.get(filmUrl)
-            .map(res => res.json());
+            .map(res => res.json())
+            .map((remoteFilm: RemoteFilm) => FilmFromRemote(remoteFilm));
     }
 }
