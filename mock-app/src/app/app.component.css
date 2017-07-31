@@ -20,7 +20,8 @@ a {
   text-decoration: none;
 }
 
-a.active {
+a.active,
+a:hover {
   background-color: #337ab7;
   color: #fff;
 }
@@ -36,6 +37,19 @@ a.active {
 ul {
   list-style: none;
   padding: 0;
+}
+
+li {
+  padding: 10px;
+}
+
+.film-title {
+  font-weight: 700;
+}
+
+.release-date {
+  color: #6e6c6c;
+  font-weight: 700;
 }
 
 .loader {

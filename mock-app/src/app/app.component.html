@@ -5,7 +5,11 @@
 <div class="film-list-container">
   <h2>Film List</h2>
   <ul>
-    <li *ngFor="let film of actor.films">{{film.title}} {{film.releaseDate | formatDate}}</li>
+    <li *ngFor="let film of actor.films">
+      <span class="film-title">{{film.title}} </span>
+      <span class="release-date"> ({{film.releaseDate | formatDate}})</span>
+    </li>
   </ul>
   <span class="loader" *ngIf="!isLoaded"></span>
+  <span class="no-record">{{errorMsg}}</span>
 </div>
