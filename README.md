@@ -1,4 +1,4 @@
-# Demo
+# About
 In this application there is good usage of rxjs observable. This project is build in angular 2+ using angular cli.
 
 ## Objectives
