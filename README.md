@@ -11,3 +11,9 @@ Use the Star Wars API swapi.co to generate a list of the films that a particular
 * You can only use the API routes found the provided 'characters.json' file, and the data returned from those calls
 * Don't load the movie data until the character is clicked
 * Don't show any movie information until all of the character's movies have loaded
+
+## Continous Integration
+This project supports CI using 'Travis'.
+
+## Hosting
+Hosting is done using 'surge'
